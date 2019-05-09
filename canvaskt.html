@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Kodutoo1</title>
+    <style>
+        #canvas{
+            border: 3px solid #182c83;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+
+    var tahvel = document.getElementById("canvas")
+        var ctx = tahvel.getContext("2d");
+
+
+    // ruut
+    var ruut = {
+        alusta: ctx.beginPath(),
+        joonistaruut: ctx.fillRect(25, 25, 100, 100),
+        kustutav2ikeruut: ctx.clearRect(45, 45, 60, 60),
+        ruudupiir: ctx.strokeRect(50, 50, 50, 50)
+    };
+
+    // ring
+    var ring = {
+        alusta: ctx.beginPath(),
+        ringiValem: ctx.arc(400, 300, 100, 0, 2 *Math.PI),
+        joon: ctx.stroke(),
+        kiri: ctx.font = "24px Helvetica",
+        kiriV2rv: ctx.fillStyle = "#blue",
+        tekst: ctx.fillText("Tere, mina olen ringi katus", 300, 200)            
+    };
+    
+ // kolmnurk
+    var kolmnurk = {
+       alusta: ctx.beginPath(),
+       samm1: ctx.moveTo(100, 75),
+       samm2: ctx.lineTo(150, 125),
+       samm3: ctx.lineTo(150, 75),
+       taide: ctx.fill()          
+    };
+    </script>
+</body>
+</html>

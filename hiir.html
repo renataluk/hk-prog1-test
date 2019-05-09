@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+    <style>
+        #canvas {
+            border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script>
+
+        var tahvel = document.getElementById("canvas");
+        var ctx = tahvel.getContext("2d");
+
+        var tahvel_asukoht = tahvel.getBoundingClientRect();
+        var hx, hy;
+
+        var hiirAll = false;
+
+        tahvel.addEventListener('mousedown', function(e) {
+            hx = e.clientX - tahvel_asukoht.x;
+            hy = e.clientY - tahvel_asukoht.y;
+            hiirAll = true;
+            
+        });
+
+        tahvel.addEventListener('mouseup', function(e){
+            hx = e.clientX - tahvel_asukoht.x;
+            hy = e.clientY - tahvel_asukoht.y;
+            hiirAll = false;
+
+        });
+
+        tahvel.addEventListener('mousemove', function(e){
+            hx = e.clientX - tahvel_asukoht.x;
+            hy = e.clientY - tahvel_asukoht.y;
+
+            if(hiirAll) {
+                //Ringide abil
+            // ctx.beginPath();
+            // ctx.arc(hx,hy,10,0,2*Math.PI);
+            // ctx.fill()
+
+            ctx.strokeStyle = "#FF0000";
+            ctx.lineWidth = 10;
+            ctx.lineTo(hx,hy);
+            ctx.stroke();
+        
+        }
+        });
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Canvas</title>
+    <style>
+    #canvas {
+        border: 1px solid #000;
+    }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+    <script src="pall.js"></script>
+    <script>
+
+        var tahvel = document.getElementById("canvas");
+        var ctx = tahvel.getContext("2d");
+
+        var pallid = [];
+        var pall = {
+            x: 100, 
+            y: 100, 
+            radius: 30,
+            color: "#BB1230",
+            draw: function() {
+                ctx.beginPath();
+                ctx.fillStyle = this.color;
+                ctx.arc(this.x, this.y, this.radius, 0, 2*Math.PI);
+                ctx.fill();
+        }
+    }
+
+    pallid.push(pall, pall2);
+
+    var joonista = function() {
+        ctx.clearRect(0,0,tahvel.width,tahvel.height);
+            // pall.draw();
+        for(var i = 0; i < pallid.length; i++) {
+            pallid[i].draw(ctx);
+        }
+    }
+        // intervall
+    // setInterval(function() {
+       // console.log("interval");
+   // }, 1000);
+
+    
+    // requestAnimationFrame
+    var uuenda = function(d) {
+        console.log("d");
+
+        joonista();
+        requestAnimationFrame(joonista);
+    }
+    uuenda(0);
+
+    
+
+
+    </script>
+</body>
+</html>
